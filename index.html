@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Артём Григорьевых — продуктовый дизайнер</title>
+<meta name="description" content="Портфолио продуктового дизайнера. Интерфейсы, продуктовые кейсы, UX/UI." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #0b0b0f;
+    --bg-soft: #14141b;
+    --card: #16161f;
+    --text: #f2f2f5;
+    --muted: #9a9aa8;
+    --line: #26262f;
+    --accent: #6c5cff;
+    --accent-2: #00e0c6;
+    --radius: 18px;
+    --maxw: 1080px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+
+  /* glow background */
+  .glow {
+    position: fixed; inset: 0; z-index: -1; pointer-events: none;
+    background:
+      radial-gradient(600px circle at 12% 8%, rgba(108,92,255,.18), transparent 45%),
+      radial-gradient(700px circle at 88% 22%, rgba(0,224,198,.12), transparent 45%);
+  }
+
+  /* nav */
+  nav {
+    position: sticky; top: 0; z-index: 50;
+    backdrop-filter: blur(12px);
+    background: rgba(11,11,15,.6);
+    border-bottom: 1px solid var(--line);
+  }
+  nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .logo { font-weight: 800; letter-spacing: -.02em; font-size: 17px; }
+  .logo span { color: var(--accent); }
+  .nav-links { display: flex; gap: 28px; }
+  .nav-links a { color: var(--muted); font-size: 14px; font-weight: 500; transition: color .2s; }
+  .nav-links a:hover { color: var(--text); }
+  @media (max-width: 640px) { .nav-links { display: none; } }
+
+  /* hero */
+  header { padding: 110px 0 90px; }
+  .badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 13px; color: var(--muted); font-weight: 500;
+    border: 1px solid var(--line); border-radius: 999px;
+    padding: 6px 14px; margin-bottom: 28px;
+  }
+  .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent-2); box-shadow: 0 0 10px var(--accent-2); }
+  h1 {
+    font-size: clamp(38px, 7vw, 72px);
+    line-height: 1.04; letter-spacing: -.03em; font-weight: 800;
+    margin-bottom: 24px;
+  }
+  h1 .grad {
+    background: linear-gradient(120deg, var(--accent), var(--accent-2));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .lead { font-size: clamp(17px, 2.3vw, 21px); color: var(--muted); max-width: 620px; margin-bottom: 38px; }
+  .cta { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 13px 24px; border-radius: 12px; font-weight: 600; font-size: 15px;
+    transition: transform .15s, box-shadow .2s, background .2s;
+  }
+  .btn-primary { background: var(--accent); color: #fff; box-shadow: 0 8px 30px rgba(108,92,255,.35); }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 38px rgba(108,92,255,.5); }
+  .btn-ghost { border: 1px solid var(--line); color: var(--text); }
+  .btn-ghost:hover { border-color: var(--accent); transform: translateY(-2px); }
+
+  /* sections */
+  section { padding: 80px 0; }
+  .eyebrow { color: var(--accent); font-weight: 600; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 12px; }
+  h2 { font-size: clamp(28px, 4vw, 40px); letter-spacing: -.02em; font-weight: 700; margin-bottom: 18px; }
+  .section-lead { color: var(--muted); max-width: 600px; font-size: 17px; }
+
+  /* about stats */
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 48px; }
+  .stat { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; }
+  .stat .num { font-size: 34px; font-weight: 800; letter-spacing: -.02em; }
+  .stat .lbl { color: var(--muted); font-size: 14px; margin-top: 4px; }
+  @media (max-width: 640px) { .stats { grid-template-columns: 1fr; } }
+
+  /* projects */
+  .projects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 48px; }
+  @media (max-width: 760px) { .projects { grid-template-columns: 1fr; } }
+  .project {
+    background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+    overflow: hidden; transition: transform .2s, border-color .2s;
+  }
+  .project:hover { transform: translateY(-4px); border-color: var(--accent); }
+  .project .thumb {
+    height: 200px; display: flex; align-items: center; justify-content: center;
+    font-size: 15px; color: rgba(255,255,255,.7); font-weight: 600;
+  }
+  .t1 { background: linear-gradient(135deg, #6c5cff, #b06cff); }
+  .t2 { background: linear-gradient(135deg, #00e0c6, #0099ff); }
+  .t3 { background: linear-gradient(135deg, #ff6c8f, #ff9a6c); }
+  .t4 { background: linear-gradient(135deg, #ffd36c, #ff8a6c); }
+  .project .body { padding: 24px; }
+  .project h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px; letter-spacing: -.01em; }
+  .project p { color: var(--muted); font-size: 15px; margin-bottom: 16px; }
+  .tags { display: flex; gap: 8px; flex-wrap: wrap; }
+  .tag { font-size: 12px; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 4px 11px; }
+
+  /* skills */
+  .skills { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 40px; }
+  .skill { background: var(--bg-soft); border: 1px solid var(--line); border-radius: 12px; padding: 12px 18px; font-weight: 500; font-size: 15px; }
+
+  /* contact */
+  .contact-card {
+    background: linear-gradient(135deg, var(--bg-soft), var(--card));
+    border: 1px solid var(--line); border-radius: 24px;
+    padding: 56px 40px; text-align: center; margin-top: 20px;
+  }
+  .contact-card h2 { margin-bottom: 14px; }
+  .contact-card p { color: var(--muted); margin-bottom: 30px; font-size: 17px; }
+  .socials { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+  footer { border-top: 1px solid var(--line); padding: 32px 0; }
+  footer .wrap { display: flex; justify-content: space-between; align-items: center; color: var(--muted); font-size: 14px; flex-wrap: wrap; gap: 12px; }
+
+  /* reveal anim */
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+<div class="glow"></div>
+
+<nav>
+  <div class="wrap">
+    <div class="logo">Артём<span>.</span></div>
+    <div class="nav-links">
+      <a href="#about">Обо мне</a>
+      <a href="#work">Проекты</a>
+      <a href="#skills">Навыки</a>
+      <a href="#contact">Контакты</a>
+    </div>
+  </div>
+</nav>
+
+<header>
+  <div class="wrap">
+    <div class="badge"><span class="dot"></span> Открыт к проектам</div>
+    <h1>Продуктовый дизайнер,<br>создаю <span class="grad">понятные интерфейсы</span></h1>
+    <p class="lead">Привет, я Артём. Превращаю сложные продукты в простые и приятные сценарии — от исследования до готового UI, который любит и команда, и пользователь.</p>
+    <div class="cta">
+      <a href="#work" class="btn btn-primary">Смотреть работы →</a>
+      <a href="#contact" class="btn btn-ghost">Связаться</a>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap reveal">
+    <div class="eyebrow">Обо мне</div>
+    <h2>Дизайн, который решает задачи бизнеса</h2>
+    <p class="section-lead">Несколько лет проектирую цифровые продукты: веб и мобильные приложения. Работаю на стыке пользователя, бизнеса и команды разработки — чтобы решения были не только красивыми, но и работающими.</p>
+    <div class="stats">
+      <div class="stat"><div class="num">5+</div><div class="lbl">лет в продуктовом дизайне</div></div>
+      <div class="stat"><div class="num">30+</div><div class="lbl">завершённых проектов</div></div>
+      <div class="stat"><div class="num">10+</div><div class="lbl">команд и продуктов</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap reveal">
+    <div class="eyebrow">Избранное</div>
+    <h2>Проекты и кейсы</h2>
+    <p class="section-lead">Несколько работ, которыми горжусь. Тексты пока «рыбные» — заменим на твои реальные кейсы.</p>
+    <div class="projects">
+      <article class="project">
+        <div class="thumb t1">Превью проекта</div>
+        <div class="body">
+          <h3>Мобильное приложение клиники</h3>
+          <p>Редизайн пользовательского пути: запись к врачу, история визитов, чат с поддержкой.</p>
+          <div class="tags"><span class="tag">Mobile</span><span class="tag">UX</span><span class="tag">UI</span></div>
+        </div>
+      </article>
+      <article class="project">
+        <div class="thumb t2">Превью проекта</div>
+        <div class="body">
+          <h3>B2B-дашборд аналитики</h3>
+          <p>Система визуализации данных: сложные метрики стали понятными за один взгляд.</p>
+          <div class="tags"><span class="tag">Web</span><span class="tag">Data</span><span class="tag">Design System</span></div>
+        </div>
+      </article>
+      <article class="project">
+        <div class="thumb t3">Превью проекта</div>
+        <div class="body">
+          <h3>Внутренний портал компании</h3>
+          <p>Сервис для 300+ сотрудников: задачи, документы, коммуникация в одном месте.</p>
+          <div class="tags"><span class="tag">Product</span><span class="tag">UX Research</span></div>
+        </div>
+      </article>
+      <article class="project">
+        <div class="thumb t4">Превью проекта</div>
+        <div class="body">
+          <h3>E-commerce редизайн</h3>
+          <p>Переработка каталога и оформления заказа — рост конверсии и удобства.</p>
+          <div class="tags"><span class="tag">Web</span><span class="tag">UI</span><span class="tag">CRO</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap reveal">
+    <div class="eyebrow">Инструменты и навыки</div>
+    <h2>Чем владею</h2>
+    <div class="skills">
+      <div class="skill">Figma</div>
+      <div class="skill">UX-исследования</div>
+      <div class="skill">Прототипирование</div>
+      <div class="skill">Дизайн-системы</div>
+      <div class="skill">UI-дизайн</div>
+      <div class="skill">User Flow</div>
+      <div class="skill">Wireframing</div>
+      <div class="skill">Юзабилити-тесты</div>
+      <div class="skill">Мобильный дизайн</div>
+      <div class="skill">Анимация интерфейсов</div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap reveal">
+    <div class="contact-card">
+      <h2>Давай поработаем вместе</h2>
+      <p>Открыт к интересным продуктовым задачам и сотрудничеству.</p>
+      <div class="socials">
+        <a href="mailto:loksik63@gmail.com" class="btn btn-primary">Написать на почту</a>
+        <a href="#" class="btn btn-ghost">Behance</a>
+        <a href="#" class="btn btn-ghost">Telegram</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>© 2026 Артём Григорьевых</div>
+    <div>Сделано с любовью к деталям</div>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Артём Григорьевых — продуктовый дизайнер</title>
-<meta name="description" content="Портфолио продуктового дизайнера. Интерфейсы, продуктовые кейсы, UX/UI." />
+<title>Gregorys — Product Design × AI</title>
+<meta name="description" content="Gregorys — I design intuitive apps and websites where product design meets AI." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -34,7 +34,6 @@
   a { color: inherit; text-decoration: none; }
   .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
 
-  /* glow background */
   .glow {
     position: fixed; inset: 0; z-index: -1; pointer-events: none;
     background:
@@ -50,12 +49,12 @@
     border-bottom: 1px solid var(--line);
   }
   nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
-  .logo { font-weight: 800; letter-spacing: -.02em; font-size: 17px; }
+  .logo { font-weight: 800; letter-spacing: -.02em; font-size: 18px; }
   .logo span { color: var(--accent); }
   .nav-links { display: flex; gap: 28px; }
   .nav-links a { color: var(--muted); font-size: 14px; font-weight: 500; transition: color .2s; }
   .nav-links a:hover { color: var(--text); }
-  @media (max-width: 640px) { .nav-links { display: none; } }
+  @media (max-width: 680px) { .nav-links { display: none; } }
 
   /* hero */
   header { padding: 110px 0 90px; }
@@ -67,20 +66,20 @@
   }
   .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent-2); box-shadow: 0 0 10px var(--accent-2); }
   h1 {
-    font-size: clamp(38px, 7vw, 72px);
-    line-height: 1.04; letter-spacing: -.03em; font-weight: 800;
+    font-size: clamp(38px, 7vw, 70px);
+    line-height: 1.05; letter-spacing: -.03em; font-weight: 800;
     margin-bottom: 24px;
   }
   h1 .grad {
     background: linear-gradient(120deg, var(--accent), var(--accent-2));
     -webkit-background-clip: text; background-clip: text; color: transparent;
   }
-  .lead { font-size: clamp(17px, 2.3vw, 21px); color: var(--muted); max-width: 620px; margin-bottom: 38px; }
+  .lead { font-size: clamp(17px, 2.3vw, 21px); color: var(--muted); max-width: 640px; margin-bottom: 38px; }
   .cta { display: flex; gap: 14px; flex-wrap: wrap; }
   .btn {
     display: inline-flex; align-items: center; gap: 8px;
     padding: 13px 24px; border-radius: 12px; font-weight: 600; font-size: 15px;
-    transition: transform .15s, box-shadow .2s, background .2s;
+    transition: transform .15s, box-shadow .2s, background .2s, border-color .2s;
   }
   .btn-primary { background: var(--accent); color: #fff; box-shadow: 0 8px 30px rgba(108,92,255,.35); }
   .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 38px rgba(108,92,255,.5); }
@@ -91,40 +90,60 @@
   section { padding: 80px 0; }
   .eyebrow { color: var(--accent); font-weight: 600; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 12px; }
   h2 { font-size: clamp(28px, 4vw, 40px); letter-spacing: -.02em; font-weight: 700; margin-bottom: 18px; }
-  .section-lead { color: var(--muted); max-width: 600px; font-size: 17px; }
+  .section-lead { color: var(--muted); max-width: 620px; font-size: 17px; }
 
-  /* about stats */
-  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 48px; }
-  .stat { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; }
-  .stat .num { font-size: 34px; font-weight: 800; letter-spacing: -.02em; }
-  .stat .lbl { color: var(--muted); font-size: 14px; margin-top: 4px; }
-  @media (max-width: 640px) { .stats { grid-template-columns: 1fr; } }
-
-  /* projects */
-  .projects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 48px; }
-  @media (max-width: 760px) { .projects { grid-template-columns: 1fr; } }
-  .project {
+  /* services */
+  .services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 48px; }
+  @media (max-width: 820px) { .services { grid-template-columns: 1fr; } }
+  .card {
     background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
-    overflow: hidden; transition: transform .2s, border-color .2s;
+    padding: 30px; transition: transform .2s, border-color .2s;
   }
-  .project:hover { transform: translateY(-4px); border-color: var(--accent); }
-  .project .thumb {
-    height: 200px; display: flex; align-items: center; justify-content: center;
-    font-size: 15px; color: rgba(255,255,255,.7); font-weight: 600;
+  .card:hover { transform: translateY(-4px); border-color: var(--accent); }
+  .card .ic {
+    width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center;
+    font-size: 22px; margin-bottom: 18px;
+    background: linear-gradient(135deg, rgba(108,92,255,.25), rgba(0,224,198,.18));
+    border: 1px solid var(--line);
   }
-  .t1 { background: linear-gradient(135deg, #6c5cff, #b06cff); }
-  .t2 { background: linear-gradient(135deg, #00e0c6, #0099ff); }
-  .t3 { background: linear-gradient(135deg, #ff6c8f, #ff9a6c); }
-  .t4 { background: linear-gradient(135deg, #ffd36c, #ff8a6c); }
-  .project .body { padding: 24px; }
-  .project h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px; letter-spacing: -.01em; }
-  .project p { color: var(--muted); font-size: 15px; margin-bottom: 16px; }
-  .tags { display: flex; gap: 8px; flex-wrap: wrap; }
-  .tag { font-size: 12px; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 4px 11px; }
+  .card h3 { font-size: 19px; font-weight: 700; margin-bottom: 10px; letter-spacing: -.01em; }
+  .card p { color: var(--muted); font-size: 15px; }
 
-  /* skills */
-  .skills { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 40px; }
-  .skill { background: var(--bg-soft); border: 1px solid var(--line); border-radius: 12px; padding: 12px 18px; font-weight: 500; font-size: 15px; }
+  /* approach split */
+  .split { display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: center; margin-top: 30px; }
+  @media (max-width: 820px) { .split { grid-template-columns: 1fr; gap: 32px; } }
+  .points { list-style: none; margin-top: 26px; display: grid; gap: 16px; }
+  .points li { display: flex; gap: 14px; align-items: flex-start; color: var(--muted); font-size: 16px; }
+  .points .chk {
+    flex: none; width: 24px; height: 24px; border-radius: 7px; margin-top: 2px;
+    display: flex; align-items: center; justify-content: center; font-size: 13px; color: #fff;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  }
+  .panel {
+    background: linear-gradient(135deg, var(--bg-soft), var(--card));
+    border: 1px solid var(--line); border-radius: 22px; padding: 36px;
+  }
+  .panel .row { display: flex; justify-content: space-between; align-items: center; padding: 16px 0; border-bottom: 1px solid var(--line); }
+  .panel .row:last-child { border-bottom: none; }
+  .panel .k { color: var(--muted); font-size: 15px; }
+  .panel .v { font-weight: 700; background: linear-gradient(120deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+  /* process */
+  .steps { display: grid; gap: 18px; margin-top: 48px; }
+  .step {
+    display: grid; grid-template-columns: 64px 1fr; gap: 22px; align-items: start;
+    background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 26px 28px; transition: border-color .2s, transform .2s;
+  }
+  .step:hover { border-color: var(--accent); transform: translateX(4px); }
+  .step .no {
+    font-size: 26px; font-weight: 800; letter-spacing: -.02em;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .step h3 { font-size: 19px; font-weight: 700; margin-bottom: 6px; }
+  .step p { color: var(--muted); font-size: 15px; }
+  @media (max-width: 520px) { .step { grid-template-columns: 1fr; gap: 8px; } }
 
   /* contact */
   .contact-card {
@@ -136,10 +155,11 @@
   .contact-card p { color: var(--muted); margin-bottom: 30px; font-size: 17px; }
   .socials { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 
-  footer { border-top: 1px solid var(--line); padding: 32px 0; }
-  footer .wrap { display: flex; justify-content: space-between; align-items: center; color: var(--muted); font-size: 14px; flex-wrap: wrap; gap: 12px; }
+  footer { border-top: 1px solid var(--line); padding: 36px 0; }
+  footer .wrap { display: flex; justify-content: space-between; align-items: flex-start; color: var(--muted); font-size: 14px; flex-wrap: wrap; gap: 16px; }
+  footer .legal { line-height: 1.8; }
+  footer b { color: var(--text); font-weight: 600; }
 
-  /* reveal anim */
   .reveal { opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease; }
   .reveal.in { opacity: 1; transform: none; }
 </style>
@@ -149,98 +169,118 @@
 
 <nav>
   <div class="wrap">
-    <div class="logo">Артём<span>.</span></div>
+    <div class="logo">Gregorys<span>.</span></div>
     <div class="nav-links">
-      <a href="#about">Обо мне</a>
-      <a href="#work">Проекты</a>
-      <a href="#skills">Навыки</a>
-      <a href="#contact">Контакты</a>
+      <a href="#services">Services</a>
+      <a href="#approach">Approach</a>
+      <a href="#process">Process</a>
+      <a href="#contact">Contact</a>
     </div>
   </div>
 </nav>
 
 <header>
   <div class="wrap">
-    <div class="badge"><span class="dot"></span> Открыт к проектам</div>
-    <h1>Продуктовый дизайнер,<br>создаю <span class="grad">понятные интерфейсы</span></h1>
-    <p class="lead">Привет, я Артём. Превращаю сложные продукты в простые и приятные сценарии — от исследования до готового UI, который любит и команда, и пользователь.</p>
+    <div class="badge"><span class="dot"></span> Available for new projects</div>
+    <h1>I build intuitive apps &amp; websites where <span class="grad">product design meets AI</span></h1>
+    <p class="lead">Hi, I'm the founder of Gregorys. I design and ship digital products that feel effortless to use — combining strong product design with modern AI technologies to make them smarter, faster, and genuinely helpful.</p>
     <div class="cta">
-      <a href="#work" class="btn btn-primary">Смотреть работы →</a>
-      <a href="#contact" class="btn btn-ghost">Связаться</a>
+      <a href="#contact" class="btn btn-primary">Start a project →</a>
+      <a href="#process" class="btn btn-ghost">How I work</a>
     </div>
   </div>
 </header>
 
-<section id="about">
+<section id="services">
   <div class="wrap reveal">
-    <div class="eyebrow">Обо мне</div>
-    <h2>Дизайн, который решает задачи бизнеса</h2>
-    <p class="section-lead">Несколько лет проектирую цифровые продукты: веб и мобильные приложения. Работаю на стыке пользователя, бизнеса и команды разработки — чтобы решения были не только красивыми, но и работающими.</p>
-    <div class="stats">
-      <div class="stat"><div class="num">5+</div><div class="lbl">лет в продуктовом дизайне</div></div>
-      <div class="stat"><div class="num">30+</div><div class="lbl">завершённых проектов</div></div>
-      <div class="stat"><div class="num">10+</div><div class="lbl">команд и продуктов</div></div>
+    <div class="eyebrow">What I do</div>
+    <h2>Design and AI, in one place</h2>
+    <p class="section-lead">End-to-end product work — from the first idea to a polished, AI-powered product people love to use.</p>
+    <div class="services">
+      <div class="card">
+        <div class="ic">📱</div>
+        <h3>Mobile &amp; Web Apps</h3>
+        <p>Intuitive, user-friendly applications designed around real user needs — clean flows, clear interfaces, zero friction.</p>
+      </div>
+      <div class="card">
+        <div class="ic">🌐</div>
+        <h3>Websites &amp; Landing Pages</h3>
+        <p>Fast, modern websites that look great on every screen and turn visitors into customers.</p>
+      </div>
+      <div class="card">
+        <div class="ic">🤖</div>
+        <h3>AI-Powered Experiences</h3>
+        <p>Smart features built on top of modern AI — assistants, automation, and personalization woven naturally into the product.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<section id="work">
+<section id="approach">
   <div class="wrap reveal">
-    <div class="eyebrow">Избранное</div>
-    <h2>Проекты и кейсы</h2>
-    <p class="section-lead">Несколько работ, которыми горжусь. Тексты пока «рыбные» — заменим на твои реальные кейсы.</p>
-    <div class="projects">
-      <article class="project">
-        <div class="thumb t1">Превью проекта</div>
-        <div class="body">
-          <h3>Мобильное приложение клиники</h3>
-          <p>Редизайн пользовательского пути: запись к врачу, история визитов, чат с поддержкой.</p>
-          <div class="tags"><span class="tag">Mobile</span><span class="tag">UX</span><span class="tag">UI</span></div>
-        </div>
-      </article>
-      <article class="project">
-        <div class="thumb t2">Превью проекта</div>
-        <div class="body">
-          <h3>B2B-дашборд аналитики</h3>
-          <p>Система визуализации данных: сложные метрики стали понятными за один взгляд.</p>
-          <div class="tags"><span class="tag">Web</span><span class="tag">Data</span><span class="tag">Design System</span></div>
-        </div>
-      </article>
-      <article class="project">
-        <div class="thumb t3">Превью проекта</div>
-        <div class="body">
-          <h3>Внутренний портал компании</h3>
-          <p>Сервис для 300+ сотрудников: задачи, документы, коммуникация в одном месте.</p>
-          <div class="tags"><span class="tag">Product</span><span class="tag">UX Research</span></div>
-        </div>
-      </article>
-      <article class="project">
-        <div class="thumb t4">Превью проекта</div>
-        <div class="body">
-          <h3>E-commerce редизайн</h3>
-          <p>Переработка каталога и оформления заказа — рост конверсии и удобства.</p>
-          <div class="tags"><span class="tag">Web</span><span class="tag">UI</span><span class="tag">CRO</span></div>
-        </div>
-      </article>
+    <div class="eyebrow">Approach</div>
+    <h2>Product design × AI technologies</h2>
+    <div class="split">
+      <div>
+        <p class="section-lead">I sit at the intersection of design and technology. Good design makes a product clear and pleasant; AI makes it powerful. Bringing the two together is where the magic happens — products that are not only beautiful, but genuinely smart.</p>
+        <ul class="points">
+          <li><span class="chk">✓</span> User-first thinking — every decision starts with the person using the product</li>
+          <li><span class="chk">✓</span> AI used with purpose, not as a gimmick — solving real problems</li>
+          <li><span class="chk">✓</span> Clean, modern interfaces that feel effortless</li>
+          <li><span class="chk">✓</span> From concept to working product, end to end</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <div class="row"><span class="k">Focus</span><span class="v">Product Design</span></div>
+        <div class="row"><span class="k">Superpower</span><span class="v">AI Integration</span></div>
+        <div class="row"><span class="k">I build</span><span class="v">Apps &amp; Websites</span></div>
+        <div class="row"><span class="k">Working with</span><span class="v">Clients worldwide</span></div>
+      </div>
     </div>
   </div>
 </section>
 
-<section id="skills">
+<section id="process">
   <div class="wrap reveal">
-    <div class="eyebrow">Инструменты и навыки</div>
-    <h2>Чем владею</h2>
-    <div class="skills">
-      <div class="skill">Figma</div>
-      <div class="skill">UX-исследования</div>
-      <div class="skill">Прототипирование</div>
-      <div class="skill">Дизайн-системы</div>
-      <div class="skill">UI-дизайн</div>
-      <div class="skill">User Flow</div>
-      <div class="skill">Wireframing</div>
-      <div class="skill">Юзабилити-тесты</div>
-      <div class="skill">Мобильный дизайн</div>
-      <div class="skill">Анимация интерфейсов</div>
+    <div class="eyebrow">How I work</div>
+    <h2>A clear process, every project</h2>
+    <p class="section-lead">No guesswork. Each project moves through the same proven stages — so you always know what's happening and what comes next.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="no">01</div>
+        <div>
+          <h3>Discovery &amp; Research</h3>
+          <p>We start by understanding your goals, your users, and your market. I dig into the problem before touching any design.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="no">02</div>
+        <div>
+          <h3>Strategy &amp; Structure</h3>
+          <p>I map out user flows, screen structure, and where AI can add the most value — turning ideas into a clear plan.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="no">03</div>
+        <div>
+          <h3>Design &amp; Prototyping</h3>
+          <p>The interface comes to life: clean UI, interactive prototypes you can click through and feel before a line of code is written.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="no">04</div>
+        <div>
+          <h3>AI Integration</h3>
+          <p>We weave in the smart parts — AI assistants, automation, and personalization — designed to fit the product naturally.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="no">05</div>
+        <div>
+          <h3>Build, Launch &amp; Iterate</h3>
+          <p>I deliver developer-ready designs, support the build, and refine the product after launch based on real feedback.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -248,12 +288,11 @@
 <section id="contact">
   <div class="wrap reveal">
     <div class="contact-card">
-      <h2>Давай поработаем вместе</h2>
-      <p>Открыт к интересным продуктовым задачам и сотрудничеству.</p>
+      <h2>Let's build something great</h2>
+      <p>Have an idea for an app, a website, or an AI-powered product? Let's talk.</p>
       <div class="socials">
-        <a href="mailto:loksik63@gmail.com" class="btn btn-primary">Написать на почту</a>
-        <a href="#" class="btn btn-ghost">Behance</a>
-        <a href="#" class="btn btn-ghost">Telegram</a>
+        <a href="mailto:Loksik63@gmail.com" class="btn btn-primary">Loksik63@gmail.com</a>
+        <a href="tel:+995599107198" class="btn btn-ghost">+995 599 107 198</a>
       </div>
     </div>
   </div>
@@ -261,8 +300,15 @@
 
 <footer>
   <div class="wrap">
-    <div>© 2026 Артём Григорьевых</div>
-    <div>Сделано с любовью к деталям</div>
+    <div class="legal">
+      <div><b>Gregorys</b> — Product Design × AI</div>
+      <div>Individual Entrepreneur ID: 345788506</div>
+    </div>
+    <div class="legal">
+      <div>Email: <b>Loksik63@gmail.com</b></div>
+      <div>Phone: <b>+995 599 107 198</b></div>
+      <div>© 2026 Gregorys. All rights reserved.</div>
+    </div>
   </div>
 </footer>
 
